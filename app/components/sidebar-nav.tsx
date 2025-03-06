@@ -77,21 +77,18 @@ export function SidebarNav() {
   }
 
   return (
-    <div className="md:relative">
-      {/* Mobile Menu Button - Now positioned relative to content */}
+    <>
+      {/* Mobile Menu Button */}
       <Button
-        variant="secondary"
-        size="lg"
-        className={cn(
-          "fixed left-4 top-4 z-[100] md:hidden p-6",
-          isOpen && "left-4" // Keep button on left when sidebar is open
-        )}
+        variant="ghost"
+        size="icon"
+        className="fixed left-4 top-4 z-50 md:hidden"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <X className="h-8 w-8" />
+          <X className="h-6 w-6" />
         ) : (
-          <Menu className="h-8 w-8" />
+          <Menu className="h-6 w-6" />
         )}
       </Button>
 
@@ -108,7 +105,7 @@ export function SidebarNav() {
         "fixed left-0 top-0 h-screen w-64 border-r bg-background px-4 py-8 z-50",
         "transition-transform duration-300 ease-in-out md:translate-x-0",
         isOpen ? "translate-x-0" : "-translate-x-full",
-        "md:sticky md:block"
+        "md:relative md:block"
       )}>
         <div className="flex flex-col h-full">
           {/* Logo */}
@@ -158,6 +155,6 @@ export function SidebarNav() {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 } 
